@@ -4,7 +4,7 @@ import { profile } from "../data/resume";
 import { viewResume } from "../utils/resumeActions";
 import { DownloadIcon, ExternalIcon } from "./Icons";
 
-const RESUME_PDF = "Umamaheswar_Raju_Sagiraju_Resume.pdf";
+const RESUME_PDF = "umamaheswarraju_resume.pdf";
 
 export default function Resume() {
   const [viewLoading, setViewLoading] = useState(false);
@@ -24,9 +24,7 @@ export default function Resume() {
           <p className="text-sm text-slate-300">
             Full resume for {profile.name}, {profile.title}.
           </p>
-          <p className="mt-1 font-mono text-xs text-slate-500">
-            {RESUME_PDF}
-          </p>
+          <p className="mt-1 font-mono text-xs text-slate-500">{RESUME_PDF}</p>
         </div>
 
         {/* Action buttons */}

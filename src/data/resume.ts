@@ -9,8 +9,7 @@ export const profile = {
 
   // title: 'Software Engineer | Backend, AI & Automation',
 
-  title:
-    "Software Engineer | Backend & AI Systems | Java · Spring Boot · Python · FastAPI | Microservices | Agentic AI · RAG | LangChain · LangGraph | Docker · Kubernetes",
+  title: "Software Engineer | Backend & AI Systems",
 
   tagline:
     "Software Engineer building scalable backend systems, AI-powered applications, and enterprise automation solutions using Java, Python, cloud-native technologies, and modern LLM frameworks.",
