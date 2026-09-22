@@ -1,52 +1,210 @@
-export const RESUME_FILE = 'Umamaheswar_Raju_Sagiraju_Resume.pdf';
+export const RESUME_FILE = 'umamaheswarraju_resume.pdf';
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
 
 export const profile = {
   name: 'Umamaheswar Raju Sagiraju',
-  title: 'Software Engineer',
+
+  title: 'Software Engineer | Backend, AI & Automation',
+
   tagline:
-    'Software Engineer building scalable backend systems, RESTful APIs, and cloud-native microservices in Java and Python, with hands-on experience in Agentic AI and RAG applications.',
+    'Software Engineer building scalable backend systems, AI-powered applications, and enterprise automation solutions using Java, Python, cloud-native technologies, and modern LLM frameworks.',
+
   summary:
-    'Software Engineer with experience designing and building scalable backend systems, RESTful APIs, and cloud-native microservices in Java and Python. Strong foundation in system design, database optimization, containerized deployments, and CI/CD automation. Hands-on experience building Agentic AI and RAG-based applications using LangChain and LangGraph, bridging traditional backend engineering with modern AI system development. Comfortable working across the full SDLC, from architecture and debugging to production deployment on Docker and Kubernetes.',
+    'Software Engineer with experience designing and building scalable backend systems, RESTful APIs, and cloud-native microservices using Java and Python. Strong foundation in system design, database optimization, containerized deployments, and CI/CD automation. Hands-on experience building Agentic AI and RAG-based applications using LangChain and LangGraph, along with AI-powered RPA workflow analysis using Google Gemini. Experienced in enterprise automation, RPA platform migration, production debugging, and full SDLC delivery across architecture, development, testing, and deployment.',
+
   email: 'sumamaheswarraju@gmail.com',
+
   phone: '+91-8778856020',
+
   location: 'Bangalore, Karnataka',
+
   links: {
     linkedin: 'https://linkedin.com/in/sumamaheswarraju',
     github: 'https://github.com/04MAHES',
   },
 };
 
-export const skillGroups: { title: string; items: string[] }[] = [
-  { title: 'Languages', items: ['Java', 'Python', 'SQL', 'JavaScript'] },
+/* =========================================================
+   PROFESSIONAL FOCUS
+   ========================================================= */
+
+export type FocusArea = {
+  title: string;
+  description: string;
+  technologies: string[];
+};
+
+export const focusAreas: FocusArea[] = [
+  {
+    title: 'Backend Engineering',
+
+    description:
+      'Designing scalable backend services, RESTful APIs, microservices, and data-driven applications with Java, Spring Boot, Python, and FastAPI.',
+
+    technologies: [
+      'Java',
+      'Python',
+      'Spring Boot',
+      'Spring MVC',
+      'FastAPI',
+      'REST APIs',
+      'Microservices',
+    ],
+  },
+
+  {
+    title: 'AI Engineering',
+
+    description:
+      'Building AI-powered applications and intelligent workflow analysis systems using LLMs, Agentic AI concepts, RAG pipelines, LangChain, LangGraph, and Google Gemini.',
+
+    technologies: [
+      'LangChain',
+      'LangGraph',
+      'RAG',
+      'Prompt Engineering',
+      'Google Gemini',
+      'LLM Applications',
+    ],
+  },
+
+  {
+    title: 'Automation Engineering',
+
+    description:
+      'Developing and modernizing enterprise automation solutions, optimizing RPA workflows, and supporting large-scale automation platform migrations.',
+
+    technologies: [
+      'UiPath',
+      'Blue Prism',
+      'Automa',
+      'RPA',
+      'Workflow Automation',
+    ],
+  },
+
+  {
+    title: 'Cloud & DevOps',
+
+    description:
+      'Working with containerized deployments, CI/CD automation, source control, and cloud-native development workflows.',
+
+    technologies: [
+      'Docker',
+      'Kubernetes',
+      'Git',
+      'GitHub',
+      'Jenkins',
+      'Maven',
+    ],
+  },
+];
+
+/* =========================================================
+   TECHNICAL SKILLS
+   ========================================================= */
+
+export const skillGroups: {
+  title: string;
+  items: string[];
+}[] = [
+  {
+    title: 'Languages',
+
+    items: [
+      'Java',
+      'Python',
+      'SQL',
+      'JavaScript',
+    ],
+  },
+
   {
     title: 'Backend & APIs',
+
     items: [
       'Spring Boot',
       'Spring MVC',
       'FastAPI',
-      'Django',
       'RESTful APIs',
       'Microservices Architecture',
       'Node.js',
     ],
   },
-  { title: 'Frontend', items: ['React', 'React Native', 'JavaScript'] },
-  { title: 'Databases', items: ['PostgreSQL', 'MySQL', 'MongoDB', 'DynamoDB'] },
-  {
-    title: 'Cloud & Distributed Systems',
-    items: ['AWS', 'Docker', 'Kubernetes', 'Kafka', 'Git', 'GitHub'],
-  },
+
   {
     title: 'AI & Agentic Systems',
-    items: ['LangChain', 'LangGraph', 'RAG Pipelines', 'Prompt Engineering'],
+
+    items: [
+      'LangChain',
+      'LangGraph',
+      'RAG Pipelines',
+      'Prompt Engineering',
+      'Google Gemini',
+      'LLM Applications',
+    ],
+  },
+
+  {
+    title: 'Databases',
+
+    items: [
+      'PostgreSQL',
+      'MySQL',
+      'MongoDB',
+      'DynamoDB',
+    ],
+  },
+
+  {
+    title: 'Cloud & DevOps',
+
+    items: [
+      'Docker',
+      'Kubernetes',
+      'Git',
+      'GitHub',
+      'Jenkins',
+      'Maven',
+      'CI/CD',
+    ],
+  },
+
+  {
+    title: 'RPA & Automation',
+
+    items: [
+      'UiPath',
+      'Blue Prism',
+      'Automa',
+      'RPA Workflow Automation',
+      'RPA Platform Migration',
+    ],
+  },
+
+  {
+    title: 'Frontend',
+
+    items: [
+      'React',
+      'JavaScript',
+    ],
   },
 ];
+
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
 
 export type ExperienceItem = {
   company: string;
   role: string;
   period: string;
   location: string;
+
   engagements: {
     name: string;
     context?: string;
@@ -58,44 +216,96 @@ export type ExperienceItem = {
 export const experience: ExperienceItem[] = [
   {
     company: 'Tecklytics',
+
     role: 'Software Engineer',
+
     period: 'Jul 2024 – Present',
+
     location: 'Bangalore, Karnataka',
+
     engagements: [
       {
-        name: 'Distributed Backend Services & Data Platform',
+        name: 'Backend Development & Data Extraction',
+
         context: 'Client: Singapore',
+
         bullets: [
-          'Designed scalable Java/Spring Boot microservices and RESTful APIs, reducing integration downtime by 30% across internal and external enterprise systems.',
-          'Optimized Spring Data JPA/Hibernate database interactions, cutting query latency by 40% across high-traffic services.',
-          'Strengthened Jenkins/Maven CI/CD pipelines, streamlining build, test, and deployment automation and cutting failed deployments by 40%.',
-          'Resolved recurring production defects through hands-on debugging and troubleshooting, collaborating closely with QA.',
+          'Designed scalable Java/Spring Boot microservices and RESTful APIs, improving system availability and reducing integration downtime for internal and external enterprise systems.',
+
+          'Optimized Spring Data JPA/Hibernate database interactions to improve query performance and reduce latency across high-traffic services.',
+
+          'Strengthened Jenkins/Maven CI/CD pipelines, streamlining build, test, and deployment automation and reducing production release risk.',
+
+          'Resolved recurring production defects through hands-on debugging and troubleshooting while collaborating closely with QA and frontend engineers.',
         ],
-        tech: ['Java', 'Spring Boot', 'Spring Data JPA', 'Hibernate', 'Postgres', 'MSSQL'],
+
+        tech: [
+          'Java',
+          'Spring Boot',
+          'Spring Data JPA',
+          'Hibernate',
+          'REST APIs',
+          'PostgreSQL',
+          'MSSQL',
+          'Jenkins',
+          'Maven',
+        ],
       },
+
       {
         name: 'System Modernization & Version Migration',
+
         context: 'Singapore Health Services',
+
         bullets: [
-          'Tested and validated workflows during a platform version migration, identifying and debugging issues introduced by the upgrade across a large-scale production environment.',
-          'Diagnosed and resolved defects surfaced during a zero-downtime cutover, working alongside the migration team to verify redundant environments and database clones before go-live.',
+          'Reduced bot-initialization time across a large fleet of virtual machines by refactoring legacy Blue Prism VBOs and resolving technical debt during a large-scale RPA platform migration.',
+
+          'Delivered a zero-downtime cutover for critical production automation workflows by orchestrating a parallel migration strategy with redundant environments and database clones.',
+
+          'Implemented an upgraded authentication and security gateway, improving system observability and operational reliability.',
         ],
-        tech: [],
+
+        tech: [
+          'Blue Prism',
+          'RPA',
+          'System Migration',
+          'Virtual Machines',
+          'Database Clones',
+          'Authentication',
+          'Security Gateway',
+        ],
       },
+
       {
-        name: 'AI-Powered Code Analysis Platform (IAAP)',
+        name: 'AI-Powered Code Analysis & RPA Review System',
+
+        context: 'AI-powered RPA workflow analysis',
+
         bullets: [
-          'Architected a reusable analysis engine evaluating complex workflow graphs via LLM-based pattern recognition, cutting manual review effort by 50% across 100+ workflows.',
-          'Engineered fault-tolerant ingestion with retry logic, schema validation, and recovery handling for malformed upstream outputs, sustaining 99%+ successful processing across thousands of runs.',
-          'Built the React frontend, including state management and virtualized rendering for nested activity trees on 1,000+ node datasets.',
-          'Deployed IAAP on AWS, integrating with the existing PostgreSQL and containerized workflow.',
-          'Designed the platform as a configurable framework rather than a one-off tool, enabling new analysis rules and workflow types to be onboarded without engine changes.',
+          'Architected an automated analysis engine to evaluate complex RPA workflows using LLM-based pattern recognition, reducing manual code review effort.',
+
+          'Achieved 100% data-processing integrity by engineering fault-tolerant retry logic and recovery algorithms against malformed automation service outputs.',
+
+          'Accelerated technical troubleshooting and decision-making through a reactive visualization layer for nested activity trees and complexity metrics across large RPA workflow sets.',
         ],
-        tech: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'LLM APIs', 'AWS'],
+
+        tech: [
+          'React',
+          'FastAPI',
+          'Python',
+          'Google Gemini',
+          'LLM APIs',
+          'PostgreSQL',
+          'RPA',
+        ],
       },
     ],
   },
 ];
+
+/* =========================================================
+   PROJECTS
+   ========================================================= */
 
 export type Project = {
   name: string;
@@ -109,12 +319,21 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: 'Simple Social',
+
     subtitle: 'Multimedia Storage Platform',
+
     bullets: [
+      'Built a full-stack social media platform for sharing images and videos using an asynchronous FastAPI backend and Streamlit-based interactive frontend.',
+
       'Implemented JWT-based authentication and session management with FastAPI-Users, covering registration, login, and protected route access.',
+
       'Integrated ImageKit for cloud-native media storage and on-the-fly transformation, including dynamic text overlays and blurred background padding for uploaded images and videos.',
-      'Designed async database models with SQLAlchemy and aiosqlite to manage users and posts, and enforced owner-based access control on post decisions.',
+
+      'Designed asynchronous database models with SQLAlchemy and aiosqlite to manage users and posts.',
+
+      'Enforced owner-based access control on post operations.',
     ],
+
     tech: [
       'Python',
       'FastAPI',
@@ -125,34 +344,130 @@ export const projects: Project[] = [
       'JWT',
       'ImageKit.io',
     ],
-    repo: 'https://github.com/04MAHES/multimedia-storage-sharing-app',
-    repoLabel: 'multimedia-storage-sharing-app',
+
+    repo:
+      'https://github.com/04MAHES/multimedia-storage-sharing-app',
+
+    repoLabel:
+      'View on GitHub',
   },
+
   {
     name: 'Job Application Management System',
+
     subtitle: 'Backend',
+
     bullets: [
       'Engineered an enterprise-grade backend system for job and company management following industry-standard RESTful microservices design principles.',
+
       'Modeled complex relational databases and optimized data-layer mapping utilizing JPA entity relationships and Hibernate.',
     ],
-    tech: ['Java 11', 'Spring Boot', 'Spring MVC', 'Spring Data JPA', 'Hibernate', 'REST APIs', 'Maven'],
+
+    tech: [
+      'Java 11',
+      'Spring Boot',
+      'Spring MVC',
+      'Spring Data JPA',
+      'Hibernate',
+      'REST APIs',
+      'Maven',
+    ],
   },
 ];
+
+/* =========================================================
+   EDUCATION
+   ========================================================= */
 
 export const education = [
   {
     degree: 'B.Tech, Information Science and Engineering',
-    school: 'Sai Vidya Institute of Technology',
-    location: 'Bangalore, Karnataka',
-    period: '2019 – 2023',
+
+    school:
+      'Sai Vidya Institute of Technology',
+
+    location:
+      'Bangalore, Karnataka',
+
+    period:
+      '2019 – 2023',
   },
 ];
 
+/* =========================================================
+   CERTIFICATIONS
+   ========================================================= */
+
+export type Certification = {
+  name: string;
+  issuer: string;
+  /** Public credential / certificate page. Opens in a new tab. */
+  url?: string;
+  year?: string;
+};
+
+export const certifications: Certification[] = [
+  {
+    name: 'UiPath Associate Certification',
+    issuer: 'UiPath',
+    url: 'https://drive.google.com/file/d/1Swagi6Vx7DCmu60qLUtzEQ9qtgW9ik1Y/view?usp=sharing',
+  },
+  {
+    name: 'IPA Architect',
+    issuer: 'Automa',
+    url: 'https://drive.google.com/file/d/1HMVfSMtGNHS1WtAjU1-HF15dL2yZNZBe/view?usp=sharing',
+  },
+  // Add more certifications here. Example:
+  // {
+  //   name: 'Certification name',
+  //   issuer: 'Issuer',
+  //   year: '2026',
+  //   url: 'https://example.com/credential',
+  // },
+];
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
 export const navItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' },
+  {
+    id: 'home',
+    label: 'Home',
+  },
+
+  {
+    id: 'about',
+    label: 'About',
+  },
+
+  {
+    id: 'skills',
+    label: 'Skills',
+  },
+
+  {
+    id: 'experience',
+    label: 'Experience',
+  },
+
+  {
+    id: 'projects',
+    label: 'Projects',
+  },
+
+  {
+    id: 'certifications',
+    label: 'Certifications',
+  },
+
+  {
+    id: 'education',
+    label: 'Education',
+  },
+
+  {
+    id: 'contact',
+    label: 'Contact',
+  },
 ];

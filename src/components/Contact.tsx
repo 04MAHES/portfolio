@@ -43,7 +43,7 @@ export default function Contact() {
   };
 
   return (
-    <Section id="contact" eyebrow="06 / Contact" title="Get in Touch">
+    <Section id="contact" eyebrow="07 / Contact" title="Get in Touch">
       <div className="grid gap-8 md:grid-cols-2">
         <div className="space-y-6">
           <p className="text-sm leading-relaxed text-slate-300">

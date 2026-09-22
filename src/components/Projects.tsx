@@ -6,8 +6,12 @@ export default function Projects() {
   return (
     <Section id="projects" eyebrow="04 / Projects" title="Projects">
       <div className="grid gap-5 md:grid-cols-2">
-        {projects.map((project) => (
-          <article key={project.name} className="card flex flex-col">
+        {projects.map((project, i) => (
+          <article
+            key={project.name}
+            data-reveal
+            className={`card project-card flex flex-col reveal delay-${[0, 150, 300][i] ?? 0}`}
+          >
             <h3 className="text-base font-semibold text-white">
               {project.name}
               {project.subtitle && <span className="text-slate-400"> — {project.subtitle}</span>}

@@ -5,8 +5,12 @@ export default function Experience() {
   return (
     <Section id="experience" eyebrow="03 / Experience" title="Professional Experience">
       <ol className="relative space-y-10 border-l border-slate-800 pl-6">
-        {experience.map((job) => (
-          <li key={`${job.company}-${job.role}`} className="relative">
+        {experience.map((job, ji) => (
+          <li
+            key={`${job.company}-${job.role}`}
+            data-reveal
+            className={`relative reveal delay-${[0, 150, 300][ji] ?? 0}`}
+          >
             <span
               className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 border-sky-400 bg-slate-950"
               aria-hidden="true"
@@ -20,8 +24,12 @@ export default function Experience() {
             <p className="mt-1 text-sm text-slate-400">{job.location}</p>
 
             <div className="mt-5 space-y-5">
-              {job.engagements.map((engagement) => (
-                <div key={engagement.name} className="card">
+              {job.engagements.map((engagement, ei) => (
+                <div
+                  key={engagement.name}
+                  className={`card reveal delay-${[100, 200, 300][ei] ?? 100}`}
+                  data-reveal
+                >
                   <h4 className="text-sm font-semibold text-white">{engagement.name}</h4>
                   {engagement.context && (
                     <p className="mt-1 text-xs text-slate-400">{engagement.context}</p>

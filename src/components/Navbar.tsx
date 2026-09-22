@@ -12,9 +12,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur">
+    <header className="site-header sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur">
       <nav className="container-page flex h-16 items-center justify-between" aria-label="Main">
-        <a href="#home" className="font-mono text-sm font-semibold tracking-tight text-white">
+        <a href="#home" className="brand-link font-mono text-sm font-semibold tracking-tight text-white">
           {profile.name.split(' ')[0]}
           <span className="text-sky-400">.</span>
         </a>
@@ -24,7 +24,7 @@ export default function Navbar() {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className="rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:text-white"
+                className="nav-link rounded-md px-3 py-2 text-sm text-slate-300 transition-colors hover:text-white"
               >
                 {item.label}
               </a>
@@ -39,7 +39,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-slate-700 text-slate-200 md:hidden"
+          className="menu-button inline-flex h-10 w-10 items-center justify-center rounded-md border border-slate-700 text-slate-200 md:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
@@ -52,7 +52,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-slate-800 bg-slate-950 md:hidden">
+        <div id="mobile-menu" className="mobile-menu border-t border-slate-800 bg-slate-950 md:hidden">
           <ul className="container-page flex flex-col py-3">
             {navItems.map((item) => (
               <li key={item.id}>

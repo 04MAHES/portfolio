@@ -9,7 +9,7 @@ export default function About() {
           <p className="text-base leading-relaxed text-slate-300">{profile.summary}</p>
         </div>
         <aside className="space-y-6">
-          <div>
+          <div id="education">
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-slate-500">Education</h3>
             {education.map((item) => (
               <div key={item.degree} className="mt-3">

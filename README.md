@@ -17,7 +17,8 @@ npm run lint
 
 ## Updating content
 
-Edit `src/data/resume.ts` (profile, skills, experience, projects, education, nav).
+Edit `src/data/resume.ts` (profile, skills, experience, projects, certifications, education, nav).
+To add a certification, append an object to `certifications` with `name`, `issuer`, and optional `url` / `year`.
 To replace the resume PDF, drop the new file in `public/` and update `RESUME_FILE` in the same file.
 
 ## Contact form configuration

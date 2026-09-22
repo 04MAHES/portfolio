@@ -1,3 +1,8 @@
+# Environment variables (never commit secrets!)
+.env
+.env.local
+.env.*.local
+
 # Logs
 logs
 *.log
@@ -22,3 +27,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local deployment and agent tooling metadata
+.vercel/
+.codex/
+graphify-out/
+AGENTS.md
+
+# Local backup copy; the app imports src/data/resume.ts
+src/data/resume copy.ts
