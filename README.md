@@ -22,22 +22,26 @@ To replace the resume PDF, drop the new file in `public/` and update `RESUME_FIL
 
 ## Contact form configuration
 
-The form posts to whatever endpoint is set in `VITE_CONTACT_FORM_ENDPOINT`.
+Submissions are delivered by email to **sumamaheswarraju@gmail.com** through the serverless function in
+`api/contact.ts` (Vercel Edge runtime), which calls the [Resend](https://resend.com) API server-side.
+The frontend posts to `/api/contact` and never sees the API key.
 
-1. Create a form endpoint with an email-forwarding service (e.g. [Formspree](https://formspree.io),
-   Web3Forms, Getform, Basin) using `sumamaheswarraju@gmail.com` as the destination address.
-2. Copy `.env.example` to `.env` and set:
+Set these **server-side** environment variables on the host (Vercel → Project → Settings → Environment Variables):
 
-   ```
-   VITE_CONTACT_FORM_ENDPOINT=https://formspree.io/f/<your-form-id>
-   ```
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `RESEND_API_KEY` | yes | Resend API key (create at https://resend.com/api-keys) |
+| `CONTACT_TO_EMAIL` | no | Destination inbox (defaults to `sumamaheswarraju@gmail.com`) |
+| `CONTACT_FROM_EMAIL` | no | Verified sender (defaults to `onboarding@resend.dev`, fine for testing) |
 
-3. Set the same variable in your host's environment (Vercel / Netlify / Cloudflare Pages) before building.
+Optional frontend override: set `VITE_CONTACT_FORM_ENDPOINT` to use a third-party form service
+(e.g. `https://formspree.io/f/<form-id>`) instead of the bundled function.
 
 Notes:
-- Only a public form endpoint URL is used in the frontend; no API keys or SMTP credentials are in the client bundle.
-- If the variable is unset, the form gracefully falls back to opening the visitor's email client via `mailto:`
-  with the entered subject and message prefilled.
+- No API keys or SMTP credentials exist in the client bundle — only the endpoint path.
+- `vite dev` does not run the serverless function. Use `vercel dev` (with `.env` populated) to exercise it locally.
+- If the endpoint is unreachable or unconfigured, the form shows a "Send it by email instead" link that opens the
+  visitor's email client with their subject and message prefilled, so no message is ever lost.
 
 ## Deploy
 

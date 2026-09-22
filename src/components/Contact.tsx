@@ -4,30 +4,29 @@ import Section from './Section';
 import { RESUME_FILE, profile } from '../data/resume';
 import { DownloadIcon, ExternalIcon, GitHubIcon, LinkedInIcon, MailIcon } from './Icons';
 
-const FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined;
+const FORM_ENDPOINT = (import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined) ?? '/api/contact';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
+function mailtoFor(data: FormData) {
+  const subject = encodeURIComponent(String(data.get('subject') ?? ''));
+  const body = encodeURIComponent(
+    `Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\n${data.get('message')}`,
+  );
+  return `mailto:${profile.email}?subject=${subject}&body=${body}`;
+}
+
 export default function Contact() {
   const [status, setStatus] = useState<Status>('idle');
-  const [error, setError] = useState('');
+  const [fallback, setFallback] = useState('');
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
 
-    if (!FORM_ENDPOINT) {
-      const subject = encodeURIComponent(String(data.get('subject') ?? ''));
-      const body = encodeURIComponent(
-        `Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\n${data.get('message')}`,
-      );
-      window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-      return;
-    }
-
     setStatus('sending');
-    setError('');
+    setFallback('');
     try {
       const response = await fetch(FORM_ENDPOINT, {
         method: 'POST',
@@ -37,9 +36,9 @@ export default function Contact() {
       if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
       form.reset();
       setStatus('sent');
-    } catch (err) {
+    } catch {
       setStatus('error');
-      setError(err instanceof Error ? err.message : 'Something went wrong.');
+      setFallback(mailtoFor(data));
     }
   };
 
@@ -159,16 +158,19 @@ export default function Contact() {
           </button>
 
           <p aria-live="polite" className="min-h-[1.25rem] text-sm">
-            {status === 'sent' && <span className="text-emerald-400">Thanks — your message has been sent.</span>}
-            {status === 'error' && <span className="text-red-400">Could not send message: {error}</span>}
+            {status === 'sent' && (
+              <span className="text-emerald-400">Thanks — your message has been sent to {profile.email}.</span>
+            )}
+            {status === 'error' && (
+              <span className="text-amber-400">
+                The message service is unavailable right now.{' '}
+                <a className="underline hover:text-amber-300" href={fallback}>
+                  Send it by email instead
+                </a>
+                .
+              </span>
+            )}
           </p>
-
-          {!FORM_ENDPOINT && (
-            <p className="text-xs text-slate-500">
-              No email service configured — submitting opens your email client addressed to {profile.email}. Set{' '}
-              <code className="font-mono">VITE_CONTACT_FORM_ENDPOINT</code> to deliver messages directly (see README).
-            </p>
-          )}
         </form>
       </div>
     </Section>
