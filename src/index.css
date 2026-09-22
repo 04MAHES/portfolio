@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-200 antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-sky-400 ring-offset-2 ring-offset-slate-950;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-5xl px-5 sm:px-8;
+  }
+
+  .section {
+    @apply scroll-mt-20 border-t border-slate-800/80 py-16 sm:py-20;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold tracking-tight text-white sm:text-3xl;
+  }
+
+  .eyebrow {
+    @apply mb-2 font-mono text-xs uppercase tracking-[0.2em] text-sky-400;
+  }
+
+  .card {
+    @apply rounded-xl border border-slate-800 bg-slate-900/40 p-5 transition-colors duration-200 hover:border-slate-700;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-md border border-slate-700/80 bg-slate-800/50 px-2.5 py-1 font-mono text-xs text-slate-300;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-sky-500 text-slate-950 hover:bg-sky-400;
+  }
+
+  .btn-secondary {
+    @apply btn border border-slate-700 text-slate-200 hover:border-slate-500 hover:text-white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
